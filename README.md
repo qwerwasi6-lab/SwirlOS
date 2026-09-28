@@ -1,6 +1,8 @@
 # SwirlOS
 A OS made from scratch. no linux whatsoever.
 some screenshots below cus im lazy to explain
+# SDL 2.0 (Future addition, getting worked on)
+SDL 2.0 will let us run steam, VLC and thousands of games.
 # Ring 3 and 0
 yes this OS does include proper ring 3 and ring 0 seperation, everything is loaded from files, even font and apps.
 following UNIX phisolophy with a little bit of mine
