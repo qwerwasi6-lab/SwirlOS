@@ -5,7 +5,7 @@ some screenshots below cus im lazy to explain
 yes this OS does include proper ring 3 and ring 0 seperation, everything is loaded from files, even font and apps.
 following UNIX phisolophy with a little bit of mine
 # Gaming support
-no gaming support except DOOM which comes in the OS (thats the only bloat) but you can uninstall it. im working on 2D acceleration and WIN32 Syscalls emulator to run windows games.
+no gaming support except DOOM which comes in the OS (thats the only bloat) but you can uninstall it. im working on 2D acceleration and SDL 2.0 support, which will include steam platform and a package manager (package manager for SDL 2.0 games/apps. SDL 2.0 will let us play thousands of games, run browsers we couldnt before, run platforms like steam.
 # Phisolophy
 Simplicity of Windows, Power of Linux
 means the DE and WM are simple to use, customisation is slider+toggles only, but power of linux is nothing is hidden from the user, so the user can edit anything.
