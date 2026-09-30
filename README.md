@@ -1,8 +1,14 @@
 # SwirlOS
 A OS made from scratch. no linux whatsoever.
 some screenshots below cus im lazy to explain
-# SDL 2.0 (Future addition, getting worked on)
-SDL 2.0 will let us run steam, VLC and thousands of games. And even .exe games with WINE 
+# SDL 2.0 ported!
+SDL 2.0 wnow helps run DOOM, performance boost aquired and allows you to play alot games.
+# xHCI (USB 3.0) support added
+now you can get files with usb onto SwirlOS.
+# Installer for .wad
+now theres a installer for wad, creates a desktop shortcut+mounts files to a place where the shortcut falls for.
+# better png+jpg support!
+now decodes more jpg and pngs
 # Ring 3 and 0
 yes this OS does include proper ring 3 and ring 0 seperation, everything is loaded from files, even font and apps.
 following UNIX phisolophy with a little bit of mine
