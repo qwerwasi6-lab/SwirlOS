@@ -19,6 +19,8 @@ no gaming support except DOOM which comes in the OS (thats the only bloat) but y
 # Phisolophy
 Simplicity of Windows, Power of Linux
 means the DE and WM are simple to use, customisation is slider+toggles only, but power of linux is nothing is hidden from the user, so the user can edit anything.
+<img width="1024" height="765" alt="Screenshot_20261009_160211" src="https://github.com/user-attachments/assets/6ee8cfc6-44dd-4d03-baf8-ed69ee9db54f" />
+
 <img width="1024" height="768" alt="DOOMandTinygl" src="https://github.com/user-attachments/assets/f83070ae-e6cc-4b3b-8fb7-4827f26d869a" />
 
 <img width="1024" height="768" alt="Screenshot_20260927_155923" src="https://github.com/user-attachments/assets/67c9bbed-98ea-49bd-9d2a-6a79706f2df2" />
