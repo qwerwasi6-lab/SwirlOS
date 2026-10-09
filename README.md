@@ -1,6 +1,8 @@
 # SwirlOS
 A OS made from scratch. no linux whatsoever.
 some screenshots below cus im lazy to explain
+# 2D GPU acceleration
+I added some GPU acceleration for 2D stuff like the windows,cursor and all window effects, this helps the OS work smoother and CPU not use as much as it did.
 # SDL 2.0 ported!
 SDL 2.0 wnow helps run DOOM, performance boost aquired and allows you to play alot games.
 # xHCI (USB 3.0) support added
