@@ -35,6 +35,10 @@ no gaming support except DOOM which comes in the OS (thats the only bloat) but y
 # Phisolophy
 Simplicity of Windows, Power of Linux
 means the DE and WM are simple to use, customisation is slider+toggles only, but power of linux is nothing is hidden from the user, so the user can edit anything.
+# Gaming compatibility
+DOOM runs as a .exe or a native port. 
+In newer not released version, SwirlRun manages to run more windows games, such as classic 2D windows xp games, and some freeware games that i was able to test on legaly.
+Around 50 games have been tested on SwirlRun, 20 of them ran in the unreleased version. its getting improved so this message will probably change soon
 <img width="1024" height="765" alt="Screenshot_20261009_160211" src="https://github.com/user-attachments/assets/6ee8cfc6-44dd-4d03-baf8-ed69ee9db54f" />
 
 <img width="1024" height="768" alt="DOOMandTinygl" src="https://github.com/user-attachments/assets/f83070ae-e6cc-4b3b-8fb7-4827f26d869a" />
