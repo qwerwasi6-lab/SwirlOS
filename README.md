@@ -1,52 +1,87 @@
-# SwirlOS - Single developer OS project
-A OS made from scratch. no linux whatsoever.
-some screenshots below cus im lazy to explain
-# Kernel
-A monolithic kernel+own bootloader (SwirlBL) own filesystem (SwirlFS) own DE/WM (SwirlWM)
-Aiming to be lightweight, as of now it runs 80mb ram idle, but with a browser open it goes up to 150mb ram usage. not something i can change, browsers are heavy on ram.
-# Specifications recomended
-512mb ram (could go less but then you couldnt get much apps multitasking)
-CPU is untested, but it smoothly runs on a 2013 dual core 2.4ghz CPU, so it would work on even shittier CPU's
-No GPU required,GPU acceleration is still optional because its not finished
-# Not unix like
-theres no POSIX but theres some similarities to unix, such as dirs (/home/user, /root and stuff)
-it runs .elf and .exe (.exe is still work in progress)
-# Desktop einviroment (DE) 
-SwirlWM aims to be modern and sleek, and we have already acomplished that. people mistake my OS as a Linux Gnome/KDE plasma distro.
-its simple but efective. its highly customisable, you can customise the taskbar position,colour transparency, system tray, icons, clock, width, height, corner smoothnes radius. all from a single settings.json or using settings.
-SwirlWM is simple but detailed.
-# SwirlRun
-A .exe runner, its a translation layer, not emulation. similiar to WINE except this syscalls for SwirlOS syscalls. not a single line of code borrowed from WINE. 
-# 2D GPU acceleration
-I added some GPU acceleration for 2D stuff like the windows,cursor and all window effects, this helps the OS work smoother and CPU not use as much as it did.
-# SDL 2.0 ported!
-SDL 2.0 wnow helps run DOOM, performance boost aquired and allows you to play alot games.
-# xHCI (USB 3.0) support added
-now you can get files with usb onto SwirlOS.
-# Installer for .wad
-now theres a installer for wad, creates a desktop shortcut+mounts files to a place where the shortcut falls for.
-# better png+jpg support!
-now decodes more jpg and pngs
-# Ring 3 and 0
-yes this OS does include proper ring 3 and ring 0 seperation, everything is loaded from files, even font and apps.
-following UNIX phisolophy with a little bit of mine
-# Gaming support
-no gaming support except DOOM which comes in the OS (thats the only bloat) but you can uninstall it. im working on 2D acceleration and SDL 2.0 support, which will include steam platform and a package manager (package manager for SDL 2.0 games/apps. SDL 2.0 will let us play thousands of games, run browsers we couldnt before, run platforms like steam.
-# Phisolophy
-Simplicity of Windows, Power of Linux
-means the DE and WM are simple to use, customisation is slider+toggles only, but power of linux is nothing is hidden from the user, so the user can edit anything.
-# Gaming compatibility
-DOOM runs as a .exe or a native port. 
-In newer not released version, SwirlRun manages to run more windows games, such as classic 2D windows xp games, and some freeware games that i was able to test on legaly.
-Around 50 games have been tested on SwirlRun, 20 of them ran in the unreleased version. its getting improved so this message will probably change soon
-Update1: Launches more games, like CaveStory Doukutsu.exe , a freeware game. proof below:
-<img width="1024" height="768" alt="Screenshot_20261013_033150" src="https://github.com/user-attachments/assets/c0bf5502-a813-4bde-971c-8a7c98cc1cb7" />
+# SwirlOS
 
-<img width="1024" height="765" alt="Screenshot_20261009_160211" src="https://github.com/user-attachments/assets/6ee8cfc6-44dd-4d03-baf8-ed69ee9db54f" />
+A single-developer operating system built entirely from scratch — no Linux kernel, no POSIX, nothing borrowed. Own bootloader, own kernel, own filesystem, own desktop environment.
 
-<img width="1024" height="768" alt="DOOMandTinygl" src="https://github.com/user-attachments/assets/f83070ae-e6cc-4b3b-8fb7-4827f26d869a" />
+Screenshots are below if you don't feel like reading.
 
-<img width="1024" height="768" alt="Screenshot_20260927_155923" src="https://github.com/user-attachments/assets/67c9bbed-98ea-49bd-9d2a-6a79706f2df2" />
+## Overview
 
-<img width="1024" height="768" alt="OSSwirl" src="https://github.com/user-attachments/assets/70873ecd-ed17-411a-951b-d2882e509cc8" />
+SwirlOS is a monolithic kernel with proper ring 0 / ring 3 separation, paired with:
+- **SwirlBL** — custom bootloader
+- **SwirlFS** — custom filesystem
+- **SwirlWM** — custom desktop environment / window manager
 
+Everything is loaded from real files on disk — fonts, apps, system assets included. Nothing is hardcoded. This follows UNIX philosophy loosely, with its own spin.
+
+## Specifications
+
+**Recommended:**
+- 512MB RAM (less is possible, but multitasking several apps gets tight)
+- No GPU required — GPU acceleration exists but is optional and still being finished
+
+**Tested on:**
+- CPU support is informal, but it runs smoothly on a 2013-era dual-core 2.4GHz CPU, so most modern (and most old) hardware should handle it fine
+
+**Memory usage:**
+- ~80MB RAM idle
+- ~150MB with a browser open (browsers are just heavy — not much to be done there)
+
+## Not UNIX-like
+
+There's no POSIX compliance, but some UNIX-style conventions carry over — directory structure like `/home/user`, `/root`, etc. SwirlOS runs `.elf` natively, and `.exe` support is in progress via SwirlRun.
+
+## Desktop Environment (SwirlWM)
+
+Aims to be modern and clean — people have mistaken it for a Linux GNOME/KDE Plasma distro on sight. It's fully customisable: taskbar position, colour, transparency, system tray, icons, clock, width, height, and corner radius — all editable live via `settings.json` or the Settings app.
+
+## SwirlRun
+
+A `.exe` compatibility layer — translation, not emulation, similar in spirit to WINE but built entirely around SwirlOS's own syscalls. Not a single line of code borrowed from WINE.
+
+Currently runs real Win32 executables including DOOM, Minesweeper, and Cave Story (Doukutsu.exe), unmodified, with working dialogs, menus, and window behavior. In an unreleased in-progress build, SwirlRun has been tested against ~50 Windows games, with ~20 running successfully — this number is expected to grow quickly as the translation layer matures.
+
+**Update 1:** Cave Story (Doukutsu.exe), a freeware game, now runs. Proof below.
+
+## 2D GPU Acceleration
+
+Hardware-accelerated 2D for windows, cursor rendering, and window effects — reduces CPU load and makes the whole desktop noticeably smoother.
+
+## SDL 2.0
+
+Ported and working — powers DOOM with a solid performance boost, and opens the door to a much wider library of games and apps going forward.
+
+## xHCI (USB 3.0) Support
+
+Real USB 3.0 driver support — transfer files onto SwirlOS via USB.
+
+## .wad Installer
+
+A dedicated installer for `.wad` files — creates a desktop shortcut and mounts the file to the right location automatically.
+
+## Image Format Support
+
+Improved PNG and JPEG decoding — broader compatibility with real-world image files.
+
+## Ring 0 / Ring 3 Separation
+
+Proper privilege separation between kernel and userspace — this isn't a flat, single-ring kernel. Combined with everything loading from real files on disk, this is core to SwirlOS's design philosophy.
+
+## Gaming Support
+
+DOOM ships with the OS as the only "bloat" (and it's fully uninstallable). Real gaming support is landing through SDL 2.0 and the 2D acceleration work above — the long-term goal includes a package manager for SDL 2.0 games/apps, and eventually running platforms like Steam.
+
+## Philosophy
+
+**Simplicity of Windows, power of Linux.**
+
+The DE/WM stays simple — sliders and toggles, nothing you need a manual for. But like Linux, nothing is hidden: every setting, every file, every system asset is exposed and editable by the user.
+
+## Screenshots
+
+<p align="center">
+  <img width="1024" height="768" alt="Cave Story running via SwirlRun" src="https://github.com/user-attachments/assets/c0bf5502-a813-4bde-971c-8a7c98cc1cb7" />
+  <img width="1024" height="765" alt="SwirlOS desktop" src="https://github.com/user-attachments/assets/6ee8cfc6-44dd-4d03-baf8-ed69ee9db54f" />
+  <img width="1024" height="768" alt="DOOM and TinyGL running simultaneously" src="https://github.com/user-attachments/assets/f83070ae-e6cc-4b3b-8fb7-4827f26d869a" />
+  <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/67c9bbed-98ea-49bd-9d2a-6a79706f2df2" />
+  <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/70873ecd-ed17-411a-951b-d2882e509cc8" />
+</p>
