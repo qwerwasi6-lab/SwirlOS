@@ -9,7 +9,7 @@ Screenshots are below if you don't feel like reading.
 SwirlOS is a monolithic kernel with proper ring 0 / ring 3 separation, paired with:
 - **SwirlBL** — custom bootloader
 - **SwirlFS** — custom filesystem
-- **SwirlWM** — custom desktop environment / window manager
+- **SwirlWM** — custom desktop environment / window manager, running entirely in userspace
 
 Everything is loaded from real files on disk — fonts, apps, system assets included. Nothing is hardcoded. This follows UNIX philosophy loosely, with its own spin.
 
@@ -28,26 +28,60 @@ Everything is loaded from real files on disk — fonts, apps, system assets incl
 
 ## Not UNIX-like
 
-There's no POSIX compliance, but some UNIX-style conventions carry over — directory structure like `/home/user`, `/root`, etc. SwirlOS runs `.elf` natively, and `.exe` support is in progress via SwirlRun.
+There's no POSIX compliance, but some UNIX-style conventions carry over — directory structure like `/home/user`, `/root`, etc. SwirlOS runs `.elf` natively, and Windows `.exe` files run through SwirlRun.
 
 ## Desktop Environment (SwirlWM)
 
-Aims to be modern and clean — people have mistaken it for a Linux GNOME/KDE Plasma distro on sight. It's fully customisable: taskbar position, colour, transparency, system tray, icons, clock, width, height, and corner radius — all editable live via `settings.json` or the Settings app.
+Clean, flat and modern — people have mistaken it for a Linux GNOME/KDE Plasma distro on sight. The whole UI went through a modernisation pass: new look for every app (except the ported NetSurf browser and the 3D demo), a new wallpaper, new default settings, and a theme engine driven by a single editable `theme.json` (colours, fonts, corner radius, window borders, shadows, title-bar layout, window transparency).
+
+It's still fully customisable: taskbar position, colour, transparency, system tray, icons, clock, width, height, and corner radius — all editable live via `settings.json` or the Settings app.
+
+The window manager lives in userspace, not the kernel. The kernel's job is syscalls and hardware; the desktop is just another program.
 
 ## SwirlRun
 
-A `.exe` compatibility layer — translation, not emulation, similar in spirit to WINE but built entirely around SwirlOS's own syscalls. Not a single line of code borrowed from WINE.
+A `.exe` compatibility layer — translation, not emulation, similar in spirit to WINE but built entirely around SwirlOS's own syscalls. Not a single line of code borrowed from WINE. It lives entirely in userspace; the kernel has no `.exe` logic.
 
-Currently runs real Win32 executables including DOOM, Minesweeper, and Cave Story (Doukutsu.exe), unmodified, with working dialogs, menus, and window behavior. In an unreleased in-progress build, SwirlRun has been tested against ~50 Windows games, with ~20 running successfully — this number is expected to grow quickly as the translation layer matures.
-Now even 3D with directX7 3D.
+Real Win32 programs run unmodified: DOOM, Minesweeper, Cave Story (Doukutsu.exe), and DirectX 7 3D games.
 
-**Update 1:** Cave Story (Doukutsu.exe), a freeware game, now runs. Proof below.
+**What's new in the latest SwirlRun:**
+- **New C runtime** — msvcrt/crtdll/msvcr7x written from scratch: stdio, file I/O, printf/scanf, time, x87 math, argv/envp, atexit, threads.
+- **Real dialogs and controls** — buttons, checkboxes, radio buttons, edit boxes, list boxes, combo boxes, progress/scroll/track bars, up-down controls and status bars, with proper Tab / Enter / Esc / arrow-key / Alt-mnemonic handling. Programs' own dialogs now show up and work instead of being skipped.
+- **Real MessageBox** and **Open/Save file dialogs** (comdlg32) with a built-in folder browser.
+- **Threads, sync objects, a persistent registry** and a much broader kernel32.
+- **Installers work** — a Windows game installer (an LHA self-extractor) ran from a USB stick, installed the game, and the game launched.
 
-**Update 2:** Succesfully running a .exe game from 2004, with direct7 3D even a directX menu popping up, the windows XP installer menu and mount UI to put it on C://Desktop
+**Update 1:** Cave Story (Doukutsu.exe), a freeware game, runs. Proof below.
+
+**Update 2:** A 2004 DirectX 7 3D game (Warning Forever) installs and runs — installer dialog, the game's own **DirectX Setting menu** (window/full screen mode, graphics, control and sound device, "don't show next time"), and gameplay.
+
+In an unreleased in-progress build, SwirlRun has been tested against ~50 Windows games, with ~20 running successfully — this number is expected to grow as the translation layer matures.
+
+**Not done yet:** colour picker / font chooser / print dialogs, owner-draw controls, JavaScript-heavy and exotic Windows APIs, structured exception handling, and fog/stencil/mipmaps in the Direct3D layer.
+
+## DirectX
+
+DirectDraw, Direct3D 7, DirectInput and DirectSound layers inside SwirlRun, enough to run real games from the DirectX 7 era including their own device-selection menus.
 
 ## 2D GPU Acceleration
 
-Hardware-accelerated 2D for windows, cursor rendering, and window effects — reduces CPU load and makes the whole desktop noticeably smoother.
+Rebuilt 2D acceleration for windows, cursor rendering and window effects — reduces CPU load and makes the whole desktop noticeably smoother.
+
+## Optimisation
+
+A general performance pass across the compositor, desktop and SwirlRun, so the desktop and Windows games run smoother on the same hardware.
+
+## Driver Manager
+
+A Windows-10-style Driver Manager: see every device and its driver, run self-tests, and adjust settings. Includes drivers for the six VirtualBox virtual Ethernet adapters (real PCI enumeration and register-level drivers) and xHCI USB 3.0.
+
+## Networking and Browser
+
+Ethernet networking with TCP/IP, TLS, and a real port of the NetSurf browser running in a SwirlWM window. JavaScript is on the to-do list, along with Wi-Fi.
+
+## SwirlyMP
+
+Swirly Media Player — own lightweight player for video, pictures and audio.
 
 ## SDL 2.0
 
@@ -55,7 +89,7 @@ Ported and working — powers DOOM with a solid performance boost, and opens the
 
 ## xHCI (USB 3.0) Support
 
-Real USB 3.0 driver support — transfer files onto SwirlOS via USB.
+Real USB 3.0 driver support — transfer files onto SwirlOS via USB, and run installers straight from a USB stick.
 
 ## .wad Installer
 
@@ -71,7 +105,7 @@ Proper privilege separation between kernel and userspace — this isn't a flat, 
 
 ## Gaming Support
 
-DOOM ships with the OS as the only "bloat" (and it's fully uninstallable). Real gaming support is landing through SDL 2.0 and the 2D acceleration work above — the long-term goal includes a package manager for SDL 2.0 games/apps, and eventually running platforms like Steam.
+DOOM ships with the OS as the only "bloat" (and it's fully uninstallable). Real gaming support comes from SDL 2.0, DirectX through SwirlRun, and the 2D acceleration work above — the long-term goal includes a package manager for SDL 2.0 games/apps, and eventually running platforms like Steam.
 
 ## Philosophy
 
@@ -88,3 +122,6 @@ The DE/WM stays simple — sliders and toggles, nothing you need a manual for. B
   <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/67c9bbed-98ea-49bd-9d2a-6a79706f2df2" />
   <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/70873ecd-ed17-411a-951b-d2882e509cc8" />
 </p>
+
+<!-- Add your two new screenshots here after uploading them to GitHub:
+     Warning Forever gameplay, and the DirectX Setting dialog. -->
