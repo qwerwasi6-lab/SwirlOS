@@ -39,8 +39,11 @@ Aims to be modern and clean — people have mistaken it for a Linux GNOME/KDE Pl
 A `.exe` compatibility layer — translation, not emulation, similar in spirit to WINE but built entirely around SwirlOS's own syscalls. Not a single line of code borrowed from WINE.
 
 Currently runs real Win32 executables including DOOM, Minesweeper, and Cave Story (Doukutsu.exe), unmodified, with working dialogs, menus, and window behavior. In an unreleased in-progress build, SwirlRun has been tested against ~50 Windows games, with ~20 running successfully — this number is expected to grow quickly as the translation layer matures.
+Now even 3D with directX7 3D.
 
 **Update 1:** Cave Story (Doukutsu.exe), a freeware game, now runs. Proof below.
+
+**Update 2:** Succesfully running a .exe game from 2004, with direct7 3D even a directX menu popping up, the windows XP installer menu and mount UI to put it on C://Desktop
 
 ## 2D GPU Acceleration
 
