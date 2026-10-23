@@ -117,11 +117,7 @@ The DE/WM stays simple — sliders and toggles, nothing you need a manual for. B
 
 <p align="center">
   <img width="1024" height="768" alt="Cave Story running via SwirlRun" src="https://github.com/user-attachments/assets/c0bf5502-a813-4bde-971c-8a7c98cc1cb7" />
-  <img width="1024" height="765" alt="SwirlOS desktop" src="https://github.com/user-attachments/assets/6ee8cfc6-44dd-4d03-baf8-ed69ee9db54f" />
-  <img width="1024" height="768" alt="DOOM and TinyGL running simultaneously" src="https://github.com/user-attachments/assets/f83070ae-e6cc-4b3b-8fb7-4827f26d869a" />
-  <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/67c9bbed-98ea-49bd-9d2a-6a79706f2df2" />
-  <img width="1024" height="768" alt="SwirlOS desktop environment" src="https://github.com/user-attachments/assets/70873ecd-ed17-411a-951b-d2882e509cc8" />
-</p>
-
-<!-- Add your two new screenshots here after uploading them to GitHub:
-     Warning Forever gameplay, and the DirectX Setting dialog. -->
+<img width="1024" height="768" alt="Screenshot_20261023_164209" src="https://github.com/user-attachments/assets/93af64a3-7b89-4227-99d7-ba2b3a0714d5" />
+<img width="1024" height="768" alt="Screenshot_20261023_164235" src="https://github.com/user-attachments/assets/6d06cd15-d7fa-41c7-9960-830fb9dc3b38" />
+<img width="1024" height="754" alt="Screenshot_20261023_164511" src="https://github.com/user-attachments/assets/ea076883-93cf-4991-9cf9-e6ad9816b2e6" />
+<img width="1024" height="768" alt="Screenshot_20261023_165415" src="https://github.com/user-attachments/assets/147fe929-b9b9-4025-9fc6-cd8bbfa4b34f" />
